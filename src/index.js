@@ -1,14 +1,6 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import PropTypes from "prop-types";
-import {
-  View,
-  KeyboardAvoidingView,
-  Modal,
-  TouchableOpacity,
-  Animated,
-  PanResponder,
-  Platform
-} from "react-native";
+import {Animated, KeyboardAvoidingView, Modal, PanResponder, Platform, TouchableOpacity, View} from "react-native";
 import styles from "./style";
 
 const SUPPORTED_ORIENTATIONS = [
@@ -38,13 +30,11 @@ class RBSheet extends Component {
       this.setState({ modalVisible: visible });
       if (typeof onOpen === "function") onOpen(props);
       Animated.timing(animatedHeight, {
-        useNativeDriver: false,
         toValue: height,
         duration: openDuration
       }).start();
     } else {
       Animated.timing(animatedHeight, {
-        useNativeDriver: false,
         toValue: minClosingHeight,
         duration: closeDuration
       }).start(() => {

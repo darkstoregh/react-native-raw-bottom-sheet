@@ -94,14 +94,6 @@ describe("React Native Raw Bottom Sheet", () => {
     beforeEach(() => {
       wrapper = shallow(<RBSheet />);
       setModalVisible = jest.spyOn(RBSheet.prototype, "setModalVisible");
-      Animated.timing = (value, config) => {
-        return {
-          start: callback => {
-            value.setValue(config.toValue);
-            if (typeof callback === "function") callback();
-          }
-        };
-      };
     });
 
     it("should createPanResponder called", () => {
